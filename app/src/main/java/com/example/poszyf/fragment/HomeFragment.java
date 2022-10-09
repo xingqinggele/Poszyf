@@ -27,6 +27,7 @@ import com.example.poszyf.net.HttpRequest;
 import com.example.poszyf.net.OkHttpException;
 import com.example.poszyf.net.RequestParams;
 import com.example.poszyf.net.ResponseCallback;
+import com.example.poszyf.newprojectview.ChooseQuoteChannelActivity;
 import com.example.poszyf.useractivity.HomeAdvPictureActivity;
 import com.example.poszyf.utils.GlideImageLoader;
 import com.example.poszyf.utils.SPUtils;
@@ -217,10 +218,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                 if (Code.equals("2")) {
                     showDialog();
                 } else {
-                    Intent intent = new Intent(getActivity(),HomeQuoteActivity1.class);
-                    intent.putExtra("type","1");
-                    intent.putExtra("bj_type","no");
+                    Intent intent = new Intent(getActivity(), ChooseQuoteChannelActivity.class);
+//                    Intent intent = new Intent(getActivity(),HomeQuoteActivity1.class);
+//                    intent.putExtra("type","1");
+//                    intent.putExtra("bj_type","no");
                     startActivity(intent);
+
                 }
                 break;
             //我的伙伴
