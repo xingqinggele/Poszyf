@@ -264,7 +264,8 @@ public class WithdrawalActivity extends BaseActivity implements View.OnClickList
         RequestParams params = new RequestParams();
         params.put("cashOutAmount", amount);
         params.put("accountType", type);  //1 结算账户 2 激活奖励
-        HttpRequest.getPayWithdrawal(params, new ResponseCallback() {
+        params.put("userId",getUserId());
+        HttpRequest.getNewPayWithdrawal(params, new ResponseCallback() {
             @Override
             public void onSuccess(Object responseObj) {
                 //关闭加载框

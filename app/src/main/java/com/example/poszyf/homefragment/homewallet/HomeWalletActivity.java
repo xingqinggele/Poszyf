@@ -1,5 +1,6 @@
 package com.example.poszyf.homefragment.homewallet;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
@@ -14,6 +15,7 @@ import com.example.poszyf.base.BaseActivity;
 import com.example.poszyf.datafragment.databill.DataBillActivity;
 import com.example.poszyf.homefragment.homewallet.activity.WithdrawalActivity;
 import com.example.poszyf.mefragment.setup.MePayPassActivity;
+import com.example.poszyf.mefragment.setup.MeSigningActivity;
 import com.example.poszyf.net.HttpRequest;
 import com.example.poszyf.net.OkHttpException;
 import com.example.poszyf.net.RequestParams;
@@ -47,12 +49,15 @@ public class HomeWalletActivity extends BaseActivity implements View.OnClickList
     private TextView data_price_tv_walletAmount;
     //是否设置支付密码标识
     private String patType = "0"; // 0 是未设置支付密码 ，1 已设置支付密码
+    //    0 未签约 1签约失败 2 审核中 3 签约成功
+    private String Signing = "0";
+    private String ret_msg = "";
 
     //xml界面
     @Override
     protected int getLayoutId() {
         //设置状态栏颜色
-        statusBarConfig(R.color.new_theme_color,false).init();
+        statusBarConfig(R.color.new_theme_color, false).init();
         return R.layout.home_wallet_activity;
     }
 
@@ -67,6 +72,7 @@ public class HomeWalletActivity extends BaseActivity implements View.OnClickList
         data_price_tv_rewardAmount = findViewById(R.id.data_price_tv_rewardAmount);
         data_price_tv_walletAmount = findViewById(R.id.data_price_tv_walletAmount);
         posDate();
+        posSigning();
     }
 
     //事件绑定
@@ -94,7 +100,11 @@ public class HomeWalletActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.wallet_settlement_bt:
                 if (patType.equals("0")) {
-                    showDialog("您还未设置支付密码，是否前往设置支付密码？");
+                    showDialog("您还未设置支付密码，是否前往设置支付密码？", 1);
+                    return;
+                }
+                if (!Signing.equals("2")) {
+                    showDialog("您是否前往签约？", 2);
                     return;
                 }
                 intent.putExtra("walletType", "1");  //结算提现
@@ -105,7 +115,11 @@ public class HomeWalletActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.wallet_reward_bt:
                 if (patType.equals("0")) {
-                    showDialog("您还未设置支付密码，是否前往设置支付密码？");
+                    showDialog("您还未设置支付密码，是否前往设置支付密码？", 1);
+                    return;
+                }
+                if (!Signing.equals("2")) {
+                    showDialog("您是否前往签约？", 2);
                     return;
                 }
                 intent.putExtra("walletType", "2");  //奖励提现
@@ -168,7 +182,7 @@ public class HomeWalletActivity extends BaseActivity implements View.OnClickList
     }
 
     //设置支付密码提示Dialog
-    private void showDialog(String value) {
+    private void showDialog(String value, int index) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_content, null);
         TextView textView = view.findViewById(R.id.dialog_tv1);
         TextView dialog_cancel = view.findViewById(R.id.dialog_cancel);
@@ -187,7 +201,14 @@ public class HomeWalletActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                startActivity(new Intent(HomeWalletActivity.this, MePayPassActivity.class));
+                if (index == 1) {
+                    startActivity(new Intent(HomeWalletActivity.this, MePayPassActivity.class));
+                } else {
+                    Intent intent = new Intent(HomeWalletActivity.this, MeSigningActivity.class);
+                    intent.putExtra("Signing", Signing);
+                    intent.putExtra("ret_msg", ret_msg);
+                    startActivity(intent);
+                }
                 finish();
             }
         });
@@ -199,6 +220,7 @@ public class HomeWalletActivity extends BaseActivity implements View.OnClickList
         super.onRestart();
         //从新获取钱包数据
         posDate();
+        posSigning();
     }
 
     /**
@@ -215,5 +237,30 @@ public class HomeWalletActivity extends BaseActivity implements View.OnClickList
             textView.setBackgroundResource(R.drawable.merchants_detail_failure_btn_bg);
             textView.setClickable(true);
         }
+    }
+
+    //获取签约状态
+    private void posSigning() {
+        RequestParams params = new RequestParams();
+        params.put("userId", getUserId());
+        HttpRequest.getSigning(params, new ResponseCallback() {
+            @Override
+            public void onSuccess(Object responseObj) {
+                try {
+                    JSONObject object = new JSONObject(responseObj.toString());
+                    Signing = object.getString("data");
+                    if (!Signing.equals("3")) {
+                        ret_msg = object.getString("ret_msg");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(OkHttpException failuer) {
+                Failuer(failuer.getEcode(), failuer.getEmsg());
+            }
+        });
     }
 }

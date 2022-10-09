@@ -369,7 +369,14 @@
             android:name=".homefragment.hometeam.HomeTeamRateActivity"
             android:configChanges="screenSize|keyboardHidden|orientation" />
 <!--        报件成功-->
-        <activity android:name=".homefragment.homequoteactivity.QuoteSucceccActivity" />
+        <activity android:name=".homefragment.homequoteactivity.QuoteSucceccActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            />
+<!--        签约界面-->
+        <activity android:name=".mefragment.setup.MeSigningActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"/>
+        <activity android:name=".mefragment.setup.SiginWebActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"/>
 
     </application>
 

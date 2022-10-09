@@ -62,41 +62,58 @@ public class HomeFillActivity extends BaseActivity implements View.OnClickListen
     private TextView serverFourEightTv;
     private TextView serverNineNineTv;
     private TextView serverTwoNineNineTv;
-    private TextView flowTwoFourTv;
 
     private TextView flowThreeSixTv;
     private TextView flowNineNineTv;
     private TextView flowFourEightTv;
 
+
+    private TextView view1Tv;
+    private TextView view2Tv;
+    private TextView view3Tv;
+
     private TextView serverThreeSixTv_mine;
     private TextView serverFourEightTv_mine;
     private TextView serverNineNineTv_mine;
     private TextView serverTwoNineNineTv_mine;
-    private TextView flowTwoFourTv_mine;
 
     private TextView flowThreeSixTv_mine;
     private TextView flowNineNineTv_mine;
     private TextView flowFourEightTv_mine;
 
+    private TextView view1_mine;
+    private TextView view2_mine;
+    private TextView view3_mine;
 
     private EditText serverThreeSixEdit;
     private EditText serverFourEightEdit;
     private EditText serverNineNineEdit;
     private EditText serverTwoNineNineEdit;
-    private EditText flowTwoFourEdit;
     private EditText flowThreeSixEdit;
     private EditText flowNineNineEdit;
     private EditText flowFourEightEdit;
     private SwitchButtonView mBtnSwitch;
 
+
+    private EditText view1Edit;
+    private EditText view2Edit;
+    private EditText view3Edit;
+
     private int num0 = 0;
     private int num1 = 0;
     private int num2 = 0;
     private int num3 = 0;
-    private int num4 = 0;
     private int num5 = 0;
     private int num6 = 0;
     private int num7 = 0;
+
+
+    private int num8 = 0;
+    private int num9 = 0;
+    private int num10 = 0;
+
+
+
 
     private String serverSwitch = "0";   //0 关 1开
     @Override
@@ -118,7 +135,6 @@ public class HomeFillActivity extends BaseActivity implements View.OnClickListen
         serverFourEightTv = findViewById(R.id.serverFourEightTv);
         serverNineNineTv = findViewById(R.id.serverNineNineTv);
         serverTwoNineNineTv = findViewById(R.id.serverTwoNineNineTv);
-        flowTwoFourTv = findViewById(R.id.flowTwoFourTv);
         flowThreeSixTv = findViewById(R.id.flowThreeSixTv);
         flowNineNineTv = findViewById(R.id.flowNineNineTv);
         flowFourEightTv = findViewById(R.id.flowFourEightTv);
@@ -127,7 +143,6 @@ public class HomeFillActivity extends BaseActivity implements View.OnClickListen
         serverFourEightTv_mine = findViewById(R.id.serverFourEightTv_mine);
         serverNineNineTv_mine = findViewById(R.id.serverNineNineTv_mine);
         serverTwoNineNineTv_mine = findViewById(R.id.serverTwoNineNineTv_mine);
-        flowTwoFourTv_mine = findViewById(R.id.flowTwoFour_mine);
         flowThreeSixTv_mine = findViewById(R.id.flowThreeSixTv_mine);
         flowNineNineTv_mine = findViewById(R.id.flowNineNineTv_mine);
         flowFourEightTv_mine = findViewById(R.id.flowFourEightTv_mine);
@@ -136,11 +151,25 @@ public class HomeFillActivity extends BaseActivity implements View.OnClickListen
         serverFourEightEdit = findViewById(R.id.serverFourEightEdit);
         serverNineNineEdit = findViewById(R.id.serverNineNineEdit);
         serverTwoNineNineEdit = findViewById(R.id.serverTwoNineNineEdit);
-        flowTwoFourEdit = findViewById(R.id.flowTwoFourEdit);
         flowThreeSixEdit = findViewById(R.id.flowThreeSixEdit);
         flowNineNineEdit = findViewById(R.id.flowNineNineEdit);
         flowFourEightEdit = findViewById(R.id.flowFourEightEdit);
         mBtnSwitch = findViewById(R.id.swith_btn);
+
+
+
+        view1Tv = findViewById(R.id.view1Tv);
+        view2Tv = findViewById(R.id.view2Tv);
+        view3Tv = findViewById(R.id.view3Tv);
+
+        view1_mine = findViewById(R.id.view1_mine);
+        view2_mine = findViewById(R.id.view2_mine);
+        view3_mine = findViewById(R.id.view3_mine);
+
+
+        view1Edit = findViewById(R.id.view1Edit);
+        view2Edit = findViewById(R.id.view2Edit);
+        view3Edit = findViewById(R.id.view3Edit);
 
 
         posData();
@@ -239,26 +268,35 @@ public class HomeFillActivity extends BaseActivity implements View.OnClickListen
                     serverTwoNineNineTv_mine.setText("(0~"+homeNewFilBeans.get(3).getServerMoney()+")");
                     num3 = Integer.parseInt(homeNewFilBeans.get(3).getServerMoney());
 
-
-
-                    flowTwoFourTv.setText(homeNewFilBeans.get(4).getServerName());
-                    flowTwoFourTv_mine.setText("(0~"+homeNewFilBeans.get(4).getServerMoney()+")");
-                    num4 = Integer.parseInt(homeNewFilBeans.get(4).getServerMoney());
-
-
-                    flowThreeSixTv.setText(homeNewFilBeans.get(5).getServerName());
-                    flowThreeSixTv_mine.setText("(0~"+homeNewFilBeans.get(5).getServerMoney()+")");
-                    num5 = Integer.parseInt(homeNewFilBeans.get(5).getServerMoney());
+                    flowThreeSixTv.setText(homeNewFilBeans.get(4).getServerName());
+                    flowThreeSixTv_mine.setText("(0~"+homeNewFilBeans.get(4).getServerMoney()+")");
+                    num5 = Integer.parseInt(homeNewFilBeans.get(4).getServerMoney());
 
 
 
-                    flowFourEightTv.setText(homeNewFilBeans.get(6).getServerName());
-                    flowFourEightTv_mine.setText("(0~"+homeNewFilBeans.get(6).getServerMoney()+")");
-                    num6 = Integer.parseInt(homeNewFilBeans.get(6).getServerMoney());
+                    flowFourEightTv.setText(homeNewFilBeans.get(5).getServerName());
+                    flowFourEightTv_mine.setText("(0~"+homeNewFilBeans.get(5).getServerMoney()+")");
+                    num6 = Integer.parseInt(homeNewFilBeans.get(5).getServerMoney());
 
-                    flowNineNineTv.setText(homeNewFilBeans.get(7).getServerName());
-                    flowNineNineTv_mine.setText("(0~"+homeNewFilBeans.get(7).getServerMoney()+")");
-                    num7 = Integer.parseInt(homeNewFilBeans.get(7).getServerMoney());
+                    flowNineNineTv.setText(homeNewFilBeans.get(6).getServerName());
+                    flowNineNineTv_mine.setText("(0~"+homeNewFilBeans.get(6).getServerMoney()+")");
+                    num7 = Integer.parseInt(homeNewFilBeans.get(6).getServerMoney());
+
+
+                    view3Tv.setText(homeNewFilBeans.get(7).getServerName());
+                    view3_mine.setText("(0~"+homeNewFilBeans.get(7).getServerMoney()+")");
+                    num8 = Integer.parseInt(homeNewFilBeans.get(7).getServerMoney());
+
+                    view1Tv.setText(homeNewFilBeans.get(8).getServerName());
+                    view1_mine.setText("(0~"+homeNewFilBeans.get(8).getServerMoney()+")");
+                    num9 = Integer.parseInt(homeNewFilBeans.get(8).getServerMoney());
+
+                    view2Tv.setText(homeNewFilBeans.get(9).getServerName());
+                    view2_mine.setText("(0~"+homeNewFilBeans.get(9).getServerMoney()+")");
+                    num10 = Integer.parseInt(homeNewFilBeans.get(9).getServerMoney());
+
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -291,11 +329,14 @@ public class HomeFillActivity extends BaseActivity implements View.OnClickListen
                     serverFourEightEdit.setText(data.getString("serverFortyEight"));
                     serverNineNineEdit.setText(data.getString("serverNinetyNine"));
                     serverTwoNineNineEdit.setText(data.getString("serverTwoNinetyNine"));
-                    flowTwoFourEdit.setText(data.getString("flowTwoFour"));
                     flowThreeSixEdit.setText(data.getString("flowThirtySix"));
                     flowFourEightEdit.setText(data.getString("flowFortyEight"));
                     flowNineNineEdit.setText(data.getString("flowNinetyNine"));
+                    view3Edit.setText(data.getString("flowSixty"));
+                    view1Edit.setText(data.getString("serverSixty"));
+                    view2Edit.setText(data.getString("serverOneNinetyNine"));
                     serverSwitch = data.getString("serverSwitch");
+
                     if(data.getString("serverSwitch").equals("0")) {
                         mBtnSwitch.setChecked(false);
 
@@ -325,10 +366,12 @@ public class HomeFillActivity extends BaseActivity implements View.OnClickListen
         params.put("serverFortyEight", serverFourEightEdit.getText().toString().trim());
         params.put("serverNinetyNine", serverNineNineEdit.getText().toString().trim());
         params.put("serverTwoNinetyNine", serverTwoNineNineEdit.getText().toString().trim());
-        params.put("flowTwoFour", flowTwoFourEdit.getText().toString().trim());
         params.put("flowThirtySix", flowThreeSixEdit.getText().toString().trim());
         params.put("flowFortyEight", flowFourEightEdit.getText().toString().trim());
         params.put("flowNinetyNine", flowNineNineEdit.getText().toString().trim());
+        params.put("flowSixty", view3Edit.getText().toString().trim());
+        params.put("serverSixty", view1Edit.getText().toString().trim());
+        params.put("serverOneNinetyNine", view2Edit.getText().toString().trim());
         params.put("serverSwitch", serverSwitch);
         HttpRequest.postOpenAccount(params,  new ResponseCallback() {
             @Override
@@ -366,10 +409,13 @@ public class HomeFillActivity extends BaseActivity implements View.OnClickListen
         params.put("serverFortyEight", serverFourEightEdit.getText().toString().trim());
         params.put("serverNinetyNine", serverNineNineEdit.getText().toString().trim());
         params.put("serverTwoNinetyNine", serverTwoNineNineEdit.getText().toString().trim());
-        params.put("flowTwoFour", flowTwoFourEdit.getText().toString().trim());
         params.put("flowThirtySix", flowThreeSixEdit.getText().toString().trim());
         params.put("flowFortyEight", flowFourEightEdit.getText().toString().trim());
         params.put("flowNinetyNine", flowNineNineEdit.getText().toString().trim());
+
+        params.put("flowSixty", view3Edit.getText().toString().trim());
+        params.put("serverSixty", view1Edit.getText().toString().trim());
+        params.put("serverOneNinetyNine", view2Edit.getText().toString().trim());
         params.put("serverSwitch", serverSwitch);
         HttpRequest.putOpenAccount(params, new ResponseCallback() {
             @Override
@@ -464,13 +510,6 @@ public class HomeFillActivity extends BaseActivity implements View.OnClickListen
                     return;
                 }
 
-                if (num4 < Integer.parseInt(flowTwoFourEdit.getText().toString().trim())){
-                    shouLog("555","----------------");
-                    flowTwoFourEdit.setError("不能大于基本值");
-                    return;
-                }
-
-
                 if (num5 < Integer.parseInt(flowThreeSixEdit.getText().toString().trim())){
                     shouLog("666","----------------");
                     flowThreeSixEdit.setError("不能大于基本值");
@@ -485,6 +524,21 @@ public class HomeFillActivity extends BaseActivity implements View.OnClickListen
                 if (num7 < Integer.parseInt(flowNineNineEdit.getText().toString().trim())){
                     shouLog("888","----------------");
                     flowNineNineEdit.setError("不能大于基本值");
+                    return;
+                }
+                if (num8 < Integer.parseInt(view3Edit.getText().toString().trim())){
+                    shouLog("555","----------------");
+                    view3Edit.setError("不能大于基本值");
+                    return;
+                }
+                if (num9 < Integer.parseInt(view1Edit.getText().toString().trim())){
+                    shouLog("555","----------------");
+                    view1Edit.setError("不能大于基本值");
+                    return;
+                }
+                if (num10 < Integer.parseInt(view2Edit.getText().toString().trim())){
+                    shouLog("555","----------------");
+                    view2Edit.setError("不能大于基本值");
                     return;
                 }
                 if (Status.equals("1")) {

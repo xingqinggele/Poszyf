@@ -303,6 +303,26 @@ public class HttpRequest {
     }
 
     /**
+     * 查询是否签约接口
+     *
+     * @param params
+     * @param callback
+     */
+    public static void getSigning(RequestParams params, ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "xinLong/signed/withdrawal/echoReceiver", params,callback, null);
+    }
+
+    /**
+     * 签约接口
+     *
+     * @param params
+     * @param callback
+     */
+    public static void getSigningTo(RequestParams params, ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "xinLong/signed/withdrawal/submitCreateUser", params,callback, null);
+    }
+
+    /**
      * 账单列表
      *
      * @param params
@@ -482,6 +502,19 @@ public class HttpRequest {
     public static void getPayPassWord(RequestParams params, ResponseCallback callback) {
         RequestMode.postRequest(Urls.commUrls + "pos/api/v2/payment/confirmPassword", params,callback, null);
     }
+
+    /**
+     * 提交提现接口
+     *
+     * @param params
+     * @param callback
+     */
+    public static void getNewPayWithdrawal(RequestParams params, ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "xinLong/signed/withdrawal/submitGrantDetail", params,callback, null);
+    }
+
+
+
 
     /**
      * 提交提现接口

@@ -154,7 +154,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="80dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/main_me_line_bg"
                 android:orientation="vertical">
 
@@ -197,7 +197,6 @@
                     android:textColor="#ffffff"
                     android:textSize="14sp" />
             </RelativeLayout>
-
 
         </LinearLayout>
 

@@ -114,6 +114,10 @@ public class MeMerchantsDetailActivity extends BaseActivity implements View.OnCl
                     me_merchants_detail_name.setText("姓名:"+merchantName);
                     me_merchants_detail_time.setText("入网时间:"+result.getJSONObject("data").getString("activeTime"));
                     me_merchants_detail_number.setText("商户编号:"+MeMerchants_ID);
+
+                    shouLog("list",result.getJSONArray("list").toString());
+
+
                     List<MerchantsDetailBean> mList = gson.fromJson(result.getJSONArray("list").toString(),
                             new TypeToken<List<MerchantsDetailBean>>() {
                             }.getType());
@@ -175,6 +179,7 @@ public class MeMerchantsDetailActivity extends BaseActivity implements View.OnCl
 
     //处理刷新逻辑
     private void setRefresh() {
+        merchantsDetailBeans.clear();
         posData();
     }
 
