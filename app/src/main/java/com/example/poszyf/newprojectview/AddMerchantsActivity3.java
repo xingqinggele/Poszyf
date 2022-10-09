@@ -279,7 +279,7 @@ public class AddMerchantsActivity3 extends BaseActivity implements View.OnClickL
                     sb.append("错误码:" + location.getErrorCode() + "\n");
                     sb.append("错误信息:" + location.getErrorInfo() + "\n");
                     sb.append("错误描述:" + location.getLocationDetail() + "\n");
-                    startLocation();
+                   // startLocation();
                 }
 
                 //解析定位结果，

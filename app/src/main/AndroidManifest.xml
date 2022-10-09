@@ -377,6 +377,27 @@
             android:configChanges="screenSize|keyboardHidden|orientation"/>
         <activity android:name=".mefragment.setup.SiginWebActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"/>
+<!--        选择报件渠道-->
+        <activity android:name=".newprojectview.ChooseQuoteChannelActivity"
+              android:configChanges="screenSize|keyboardHidden|orientation"/>
+        <activity android:name=".newprojectview.AddMerchantsActivity1"
+              android:configChanges="screenSize|keyboardHidden|orientation"/>
+        <activity android:name=".newprojectview.AddMerchantsActivity2"
+              android:configChanges="screenSize|keyboardHidden|orientation"/>
+        <activity android:name=".newprojectview.AddMerchantsActivity3"
+              android:configChanges="screenSize|keyboardHidden|orientation"/>
+        <activity android:name=".newprojectview.MeMerchantsSelectActivity"
+              android:configChanges="screenSize|keyboardHidden|orientation"/>
+        <activity android:name=".newprojectview.editMerchats.EditNewMerchantsActivity"
+              android:configChanges="screenSize|keyboardHidden|orientation"/>
+        <activity android:name=".newprojectview.editMerchats.EditMerchantsActivity3"
+              android:configChanges="screenSize|keyboardHidden|orientation"/>
+        <activity android:name=".newprojectview.editMerchats.EditMerchantsActivity2"
+              android:configChanges="screenSize|keyboardHidden|orientation"/>
+        <activity android:name=".newprojectview.editMerchats.EditMerchantsActivity1"
+              android:configChanges="screenSize|keyboardHidden|orientation"/>
+        <activity android:name=".newprojectview.DemoActivity"
+              android:configChanges="screenSize|keyboardHidden|orientation"/>
 
     </application>
 

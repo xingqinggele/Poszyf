@@ -1042,4 +1042,123 @@ public class HttpRequest {
         RequestMode.getRequest2(Urls.commUrls + "pos/merchantInfo/branchs", params, token,callback, null);
     }
 
+    /**
+     * 获取新商户列表
+     *
+     * @param params
+     * @param callback
+     */
+    public static void postFyMerch(RequestParams params, ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/merchantInfo/get/myMerch", params,callback, null);
+    }
+
+    /**
+     *  判断设备是否有押
+     *
+     * @param params
+     * @param callback
+     */
+    public static void posJudgeCashPledge(RequestParams params, ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/merchantInfo/judgeCashPledge", params, callback, null);
+    }
+
+    /**
+     * 签名上传
+     *
+     * @param params
+     * @param callback
+     */
+    public static void posPhotoUpload(RequestParams params,ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/merchantInfo/photoUpload", params, callback, null);
+    }
+
+    /**
+     * 签字提示语句
+     *
+     * @param params
+     * @param callback
+     */
+    public static void posSignature(RequestParams params,ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/nuclearbody/signature", params, callback, null);
+    }
+
+    /**
+     * 获取FaceID
+     *
+     * @param params
+     * @param callback
+     */
+    public static void postFaceID(RequestParams params,ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/nuclearbody/getFaceID", params, callback, null);
+    }
+
+    /**
+     * 视频上传
+     *
+     * @param params
+     * @param callback
+     */
+    public static void posVideoUpload(RequestParams params,ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/merchantInfo/videoUpload", params,callback, null);
+    }
+
+    /**
+     *  查询文件是否上传
+     *
+     * @param params
+     * @param callback
+     */
+    public static void posWhetherPhotoVideo(RequestParams params, ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/merchantInfo/whetherPhotoVideo", params,callback, null);
+    }
+
+    /**
+     * 绑定设备
+     *
+     * @param params
+     * @param callback
+     */
+    public static void posBindCode(RequestParams params,ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/merchantInfo/binding/posCode", params,callback, null);
+    }
+
+    /**
+     * 获取新费率
+     *
+     * @param params
+     * @param callback
+     */
+    public static void posMerchantInfo(RequestParams params, ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/merchantInfo/getMerchantInfo", params, callback, null);
+    }
+
+    /**
+     * 获取新费率
+     *
+     * @param params
+     * @param callback
+     */
+    public static void posMerchantEdit(RequestParams params,ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/merchantInfo/update/merchant/info", params,callback, null);
+    }
+
+    /**
+     * 商户报件查询
+     *
+     * @param params
+     * @param callback
+     */
+    public static void getNewEntry(RequestParams params,ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "myentry/entry/query/entry", params,callback, null);
+    }
+
+    /**
+     * 商户报件修改
+     *
+     * @param params
+     * @param callback
+     */
+    public static void getNewUpdate(RequestParams params,ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "myentry/entry/update", params, callback, null);
+    }
 }

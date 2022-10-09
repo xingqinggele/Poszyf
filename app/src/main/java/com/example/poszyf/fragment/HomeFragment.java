@@ -28,6 +28,7 @@ import com.example.poszyf.net.OkHttpException;
 import com.example.poszyf.net.RequestParams;
 import com.example.poszyf.net.ResponseCallback;
 import com.example.poszyf.newprojectview.ChooseQuoteChannelActivity;
+import com.example.poszyf.newprojectview.MeMerchantsSelectActivity;
 import com.example.poszyf.useractivity.HomeAdvPictureActivity;
 import com.example.poszyf.utils.GlideImageLoader;
 import com.example.poszyf.utils.SPUtils;
@@ -210,7 +211,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                 if (Code.equals("2")) {
                     showDialog();
                 } else {
-                    startActivity(new Intent(getActivity(), MeMerchantsActivity.class));
+//                    startActivity(new Intent(getActivity(), MeMerchantsActivity.class));
+                    startActivity(new Intent(getActivity(), MeMerchantsSelectActivity.class));
                 }
                 break;
             //商户报件
