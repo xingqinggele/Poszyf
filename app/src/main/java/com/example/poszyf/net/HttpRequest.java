@@ -854,10 +854,13 @@ public class HttpRequest {
      *
      * @param params
      * @param callback
+     *
      */
     public static void getNewOperation(RequestParams params, ResponseCallback callback) {
         RequestMode.postRequest(Urls.commUrls + "noauth/posv1/insertMerchantEntry", params, callback, null);
     }
+
+
     /**
      * 商户报件修改
      *
@@ -977,6 +980,66 @@ public class HttpRequest {
      */
     public static void getQueryMyCommercialTenant(RequestParams params, ResponseCallback callback) {
         RequestMode.postRequest(Urls.commUrls + "pos/api/v1/merchant/queryMyCommercialTenant", params, callback, null);
+    }
+
+    /**
+     * 获取省市区
+     *
+     * @param params
+     * @param callback
+     */
+    public static void getContory(RequestParams params, ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "myentry/entry/code", params, callback, null);
+    }
+
+    /**
+     * 获取新费率
+     *
+     * @param params
+     * @param callback
+     */
+    public static void posEchoFeeId(RequestParams params,ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/merchantInfo/echoFeeId", params, callback, null);
+    }
+
+    /**
+     * 获取省市区
+     *
+     * @param params
+     * @param callback
+     */
+    public static void getArea(RequestParams params,String token,ResponseCallback callback) {
+        RequestMode.getRequest2(Urls.commUrls + "pos/merchantInfo/getArea", params, token,callback, null);
+    }
+
+    /**
+     * PosP报件上传
+     *
+     * @param params
+     * @param callback
+     */
+    public static void getPosPOperation(RequestParams params, ResponseCallback callback) {
+        RequestMode.postRequest(Urls.commUrls + "pos/merchantInfo/add/merchant/info", params,callback, null);
+    }
+
+    /**
+     * 银行编码
+     *
+     * @param params
+     * @param callback
+     */
+    public static void getBanks(RequestParams params,String token,ResponseCallback callback) {
+        RequestMode.getRequest2(Urls.commUrls + "pos/merchantInfo/banks", params,token, callback, null);
+    }
+
+    /**
+     * 支行信息
+     *
+     * @param params
+     * @param callback
+     */
+    public static void getBranchs(RequestParams params,String token,ResponseCallback callback) {
+        RequestMode.getRequest2(Urls.commUrls + "pos/merchantInfo/branchs", params, token,callback, null);
     }
 
 }
