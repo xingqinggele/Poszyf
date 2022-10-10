@@ -394,7 +394,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:background="#F3F3F3" />
-            <com.example.mypost.views.MyListView
+            <com.example.poszyf.views.MyListView
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="15dp"
                 android:id="@+id/addListView"
@@ -457,7 +457,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:background="#F3F3F3" />
-            <com.example.mypost.views.MyListView
+            <com.example.poszyf.views.MyListView
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="15dp"
                 android:id="@+id/zhListView"
